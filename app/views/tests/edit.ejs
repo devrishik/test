@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a> <span class="divider">/</span></li>
+    <li><a href="<%- pathTo.tests() %>">tests</a> <span class="divider">/</span></li>
+    <li class="active"><a href="#">Edit test</a></li>
+</ul>
+
+<div class="page-header">
+    <h1>Edit test</h1>
+</div>
+
+<% var form = formFor(test, {action: pathTo.test(test), method: 'PUT', id: "test-form", class: 'form-horizontal'}) %>
+<%- form.begin() %>
+<%- include _form %>
+<div class="form-actions">
+    <%- form.submit('<i class="icon-ok icon-white"></i> Update test', {class: 'btn btn-primary'}) %> or
+    <%- linkTo('Cancel', pathTo.test(test), {class: 'btn'}) %>
+</div>
+<%- form.end() %>
